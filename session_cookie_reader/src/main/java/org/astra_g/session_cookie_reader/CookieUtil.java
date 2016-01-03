@@ -41,7 +41,6 @@ public class CookieUtil {
             Map.Entry pair = (Map.Entry) o;
             builder.appendQueryParameter(pair.getKey().toString(), pair.getValue().toString());
         }
-
         return builder.build().getEncodedQuery();
     }
 }
