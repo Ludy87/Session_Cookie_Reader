@@ -2,44 +2,44 @@
 Cookie Reader of Session
 
 -----
-    public class Test extends Activity implements CookieParameterInterfaces {
+        public class Test extends Activity implements CookieParameterInterfaces {
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            CookieReader cookieReader = new CookieReader(this);
-            cookieReader.execute();
-        }
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                CookieReader cookieReader = new CookieReader(this);
+                cookieReader.execute();
+            }
 
-        @Override
-        public String url() {
-            return "https://mm.web.de/login";
-        }
+            @Override
+            public String url() {
+                return "https://mm.web.de/login";
+            }
 
-        @Override
-        public String cookieName() {
-            return "JSESSIONID";
-        }
+            @Override
+            public String cookieName() {
+                return "JSESSIONID";
+            }
 
-        @Override
-        public HashMap<String, String> postParameter() {
-            HashMap<String, String> param = new HashMap<String, String>();
-            param.put("username", "USERNAME");
-            param.put("password", "PASSWORD");
-            param.put("login", "Login");
-            return param;
-        }
+            @Override
+            public HashMap<String, String> postParameter() {
+                HashMap<String, String> param = new HashMap<String, String>();
+                param.put("username", "USERNAME");
+                param.put("password", "PASSWORD");
+                param.put("login", "Login");
+                return param;
+            }
 
-        @Override
-        public CookieReaderInterfaces cookieCallback() {
-            return new CookieReaderInterfaces() {
-                @Override
-                public void onCookieCall(String cookieValue) {
-                    Log.d("Cookie value", cookieValue);
-                }
-            };
+            @Override
+            public CookieReaderInterfaces cookieCallback() {
+                return new CookieReaderInterfaces() {
+                    @Override
+                    public void onCookieCall(String cookieValue) {
+                        Log.d("Cookie value", cookieValue);
+                    }
+                };
+            }
         }
-    }
 
 
 ----
