@@ -54,8 +54,8 @@ Cookie Reader of Session
         }
     }
 
-
-----
+License
+====================
 
     Copyright [2016] [Ludy]
 
