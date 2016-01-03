@@ -2,6 +2,15 @@
 Cookie Reader of Session
 
 -----
+    repositories {
+        maven {
+            url 'https://dl.bintray.com/ludy87/maven/'
+        }
+    }
+
+    dependencies {
+        compile 'org.astra_g:session_cookie_reader:1.2.3'
+    }
 
     public class Test extends Activity implements CookieParameterInterfaces {
 

@@ -37,15 +37,11 @@ public class CookieUtil {
      */
     static String getQueryString(HashMap<String, String> params) {
         Uri.Builder builder = new Uri.Builder();
-
-        Iterator it = params.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
-
-            builder.appendQueryParameter(pair.getKey().toString(),pair.getValue().toString());
+        for (Object o : params.entrySet()) {
+            Map.Entry pair = (Map.Entry) o;
+            builder.appendQueryParameter(pair.getKey().toString(), pair.getValue().toString());
         }
 
-        String query = builder.build().getEncodedQuery();
-        return query;
+        return builder.build().getEncodedQuery();
     }
 }
