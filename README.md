@@ -8,13 +8,11 @@ Cookie Reader of Session
 add to App *build.gradle*
 
     repositories {
-        maven {
-            url 'https://dl.bintray.com/ludy87/maven/'
-        }
+        jcenter()
     }
 
     dependencies {
-        compile 'org.astra_g:session_cookie_reader:1.2.3'
+        compile 'org.astra_g:session_cookie_reader:1.2.+'
     }
 
 -----
