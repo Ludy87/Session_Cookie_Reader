@@ -58,7 +58,7 @@ public class CookieReader extends AsyncTask<String, String, String> {
     }
 
     /**
-     * @param postParameter HashMap<String, String>()
+     * @param postParameter HashMap
      * @return CookieReader
      * @deprecated
      */
