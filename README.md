@@ -1,8 +1,10 @@
-# CookieReader
+# CookieReader for Android
 
 Cookie Reader of Session
 
-[![Download](https://api.bintray.com/packages/ludy87/maven/SessionCookieReader/images/download.svg) ](https://bintray.com/ludy87/maven/SessionCookieReader/_latestVersion)
+[![Download](https://api.bintray.com/packages/ludy87/maven/SessionCookieReader/images/download.svg)](https://bintray.com/ludy87/maven/SessionCookieReader/_latestVersion)
+
+
 
 -----
 add to App *build.gradle*
