@@ -12,7 +12,6 @@ import java.util.HashMap;
 
 import javax.net.ssl.HttpsURLConnection;
 
-
 public class CookieReader extends AsyncTask<String, String, String> {
 
     private String _cookieName;

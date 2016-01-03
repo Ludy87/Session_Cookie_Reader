@@ -49,5 +49,4 @@ public class CookieUtil {
         String query = builder.build().getEncodedQuery();
         return query;
     }
-
 }
