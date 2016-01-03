@@ -5,6 +5,9 @@ Cookie Reader of Session
 [ ![Download](https://api.bintray.com/packages/ludy87/maven/CookieReader/images/download.svg) ](https://bintray.com/ludy87/maven/CookieReader/_latestVersion)
 
 -----
+App *build.gradle*
+=========
+
     repositories {
         maven {
             url 'https://dl.bintray.com/ludy87/maven/'
