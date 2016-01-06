@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 
-def versionsNumber = '1.2.11'
+def versionsNumber = '1.2.12'
 
 ext {
     bintrayRepo = 'maven'
