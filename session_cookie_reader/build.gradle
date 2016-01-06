@@ -20,10 +20,12 @@ ext {
     developerId = 'ludy'
     developerName = 'ludy'
     developerEmail = 'ludy8687@gmail.com'
+    developerUrl = 'http://astra-g.org'
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
+
 }
 repositories {
     jcenter()
@@ -51,5 +53,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/install_v1.gradle'
 apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'
