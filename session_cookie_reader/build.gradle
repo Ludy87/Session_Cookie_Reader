@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 
-def versionsNumber = '1.2.3'
+def versionsNumber = '1.2.4'
 
 ext {
     bintrayRepo = 'maven'
@@ -25,6 +25,8 @@ ext {
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
+
+    scmSiteUrl = 'https://dl.bintray.com/ludy87/maven/org/astra_g/session_cookie_reader/' + versionsNumber
 
 }
 repositories {
