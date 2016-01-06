@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 
-def versionsNumber = '1.2.4'
+def versionsNumber = '1.2.9'
 
 ext {
     bintrayRepo = 'maven'
@@ -25,9 +25,6 @@ ext {
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
-
-    scmSiteUrl = 'https://dl.bintray.com/ludy87/maven/org/astra_g/session_cookie_reader/' + versionsNumber
-
 }
 repositories {
     jcenter()
@@ -55,6 +52,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+
 //apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/install_v1.gradle'
-apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'
+apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/bintray_v1.gradle'
