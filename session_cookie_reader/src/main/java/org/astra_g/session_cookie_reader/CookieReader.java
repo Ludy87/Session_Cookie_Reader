@@ -20,6 +20,7 @@ public class CookieReader extends AsyncTask<String, String, String> {
     private boolean _debug = false;
     private CookieReaderInterfaces callback;
 
+
     public CookieReader(CookieParameterInterfaces parameterInterfaces) {
         callback = parameterInterfaces.cookieCallback();
         _url = parameterInterfaces.url();
@@ -96,7 +97,6 @@ public class CookieReader extends AsyncTask<String, String, String> {
             con.setRequestMethod("POST");
             con.setFixedLengthStreamingMode(_postParam.getBytes().length);
             con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-
             // Send
             PrintWriter out = new PrintWriter(con.getOutputStream());
             out.print(_postParam);
@@ -125,7 +125,8 @@ public class CookieReader extends AsyncTask<String, String, String> {
             } else {
                 in = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 Log.d("TAG", "POST request send successful: " + in.readLine());
-            };
+            }
+            ;
 
 
         } catch (IOException e) {
