@@ -126,9 +126,6 @@ public class CookieReader extends AsyncTask<String, String, String> {
                 in = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 Log.d("TAG", "POST request send successful: " + in.readLine());
             }
-            ;
-
-
         } catch (IOException e) {
             Log.e("TAG", "Exception");
             e.printStackTrace();
