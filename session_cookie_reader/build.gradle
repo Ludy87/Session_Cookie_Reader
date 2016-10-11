@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-def versionsNumber = '1.2.17'
+def versionsNumber = '1.2.18'
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'SessionCookieReader'
@@ -29,7 +29,7 @@ repositories {
 }
 android {
     compileSdkVersion 24
-    buildToolsVersion '24.0.2'
+    buildToolsVersion '24.0.3'
 
     defaultConfig {
         minSdkVersion 3
