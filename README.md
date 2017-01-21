@@ -61,7 +61,7 @@ add to App *build.gradle*
 License
 ====================
 
-    Copyright [2016] [Ludy]
+    Copyright [2016-2017] [Ludy]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
