@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-def versionsNumber = '1.2.20'
+def versionsNumber = '1.3.0'
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'SessionCookieReader'

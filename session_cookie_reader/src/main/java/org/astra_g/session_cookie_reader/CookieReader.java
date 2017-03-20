@@ -19,20 +19,69 @@ public class CookieReader extends AsyncTask<String, String, String> {
     private String _url;
     private boolean _debug = false;
     private CookieReaderInterfaces callback;
+    private String _contentType = CookieEnum.X_WWW_FROM_URLENCODED.toString();
 
-
-    public CookieReader(CookieParameterInterfaces parameterInterfaces) {
+    /**
+     *
+     * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
+     * @param contentType custom Content-Type | default application/x-www-form-urlencoded
+     * @param debug default false | true enable debug logs
+     */
+    public CookieReader(CookieParameterInterfaces parameterInterfaces, String contentType, boolean debug) {
         callback = parameterInterfaces.cookieCallback();
         _url = parameterInterfaces.url();
         _postParam = CookieUtil.getQueryString(parameterInterfaces.postParameter());
         _cookieName = parameterInterfaces.cookieName();
+        _contentType = contentType;
+        _debug = debug;
+        if (_debug) {
+            Log.d("url", _url);
+            Log.d("CookieName", _cookieName);
+            Log.d("Content-Type", _contentType);
+            Log.d("postParameter", _postParam);
+        }
+    }
+
+    /**
+     *
+     * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
+     * @param contentType default application/x-www-form-urlencoded
+     * @param debug default false | true enable debug logs
+     */
+    public CookieReader(CookieParameterInterfaces parameterInterfaces, CookieEnum contentType, boolean debug) {
+        this(parameterInterfaces, contentType.toString(), debug);
+    }
+
+    /**
+     *
+     * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
+     * @param contentType default application/x-www-form-urlencoded
+     */
+    public CookieReader(CookieParameterInterfaces parameterInterfaces, CookieEnum contentType) {
+        this(parameterInterfaces, contentType, false);
+    }
+
+    /**
+     *
+     * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
+     * @param debug default false | true enable debug logs
+     */
+    public CookieReader(CookieParameterInterfaces parameterInterfaces, boolean debug) {
+        this(parameterInterfaces, CookieEnum.X_WWW_FROM_URLENCODED, debug);
+    }
+
+    /**
+     *
+     * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
+     */
+    public CookieReader(CookieParameterInterfaces parameterInterfaces) {
+        this(parameterInterfaces, CookieEnum.X_WWW_FROM_URLENCODED, false);
     }
 
     /**
      * @deprecated
      */
-    public CookieReader() {
-    }
+    public CookieReader() {}
 
     /**
      * @param url http://
@@ -96,7 +145,7 @@ public class CookieReader extends AsyncTask<String, String, String> {
             con.setInstanceFollowRedirects(false);
             con.setRequestMethod("POST");
             con.setFixedLengthStreamingMode(_postParam.getBytes().length);
-            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            con.setRequestProperty("Content-Type", _contentType);
             // Send
             PrintWriter out = new PrintWriter(con.getOutputStream());
             out.print(_postParam);

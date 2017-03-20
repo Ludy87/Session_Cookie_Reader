@@ -14,10 +14,44 @@ add to App *build.gradle*
     }
 
     dependencies {
-        compile 'org.astra_g:session_cookie_reader:1.2.+'
+        compile 'org.astra_g:session_cookie_reader:1.3.+'
     }
 
 -----
+
+
+    /**
+     *
+     * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
+     * @param contentType Enum | String
+     * @param debug default false
+     */
+    CookieReader(CookieParameterInterfaces parameterInterfaces, ContentType);
+
+    /**
+     *
+     * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
+     * @param contentType Enum or String
+     * @param debug boolean
+     */
+    CookieReader(CookieParameterInterfaces, ContentType, Debug);
+
+    /**
+     *
+     * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
+     * @param contentType default application/x-www-form-urlencoded
+     * @param debug boolean
+     */
+    CookieReader(CookieParameterInterfaces, Debug);
+
+    /**
+     *
+     * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
+     * @param contentType default application/x-www-form-urlencoded
+     * @param debug default false
+     */
+    CookieReader(CookieParameterInterfaces);
+
 
     public class Test extends Activity implements CookieParameterInterfaces {
 
@@ -61,7 +95,7 @@ add to App *build.gradle*
 License
 ====================
 
-    Copyright [2016-2017] [Ludy]
+    Copyright [2016-2017] [Ludy Astra-Germany]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
