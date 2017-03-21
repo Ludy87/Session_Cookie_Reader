@@ -23,6 +23,7 @@ add to App *build.gradle*
         - setReadTimeout
         - setConnectTimeout
 
+-----
 
     /**
      *
