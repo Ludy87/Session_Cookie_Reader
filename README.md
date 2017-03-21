@@ -23,6 +23,7 @@ add to App *build.gradle*
         - setReadTimeout
         - setConnectTimeout
 
+    new CookieReader(this).setTimeout(7000);
 -----
 
     /**
