@@ -20,6 +20,7 @@ public class CookieReader extends AsyncTask<String, String, String> {
     private boolean _debug = false;
     private CookieReaderInterfaces callback;
     private String _contentType = CookieEnum.X_WWW_FROM_URLENCODED.toString();
+    private int _timeout = 7000;
 
     /**
      *
@@ -76,6 +77,19 @@ public class CookieReader extends AsyncTask<String, String, String> {
      */
     public CookieReader(CookieParameterInterfaces parameterInterfaces) {
         this(parameterInterfaces, CookieEnum.X_WWW_FROM_URLENCODED, false);
+    }
+
+    /**
+     *
+     * @param timeout default 7000 (7sec)
+     * @return CookieReader
+     */
+    public CookieReader setTimeout(int timeout) {
+        _timeout = timeout;
+        if (_debug){
+            Log.d("TimeOut", String.valueOf(_timeout));
+        }
+        return this;
     }
 
     /**
@@ -138,8 +152,8 @@ public class CookieReader extends AsyncTask<String, String, String> {
             url = new URL(_url);
             HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 
-            con.setReadTimeout(7000);
-            con.setConnectTimeout(7000);
+            con.setReadTimeout(_timeout);
+            con.setConnectTimeout(_timeout);
             con.setDoOutput(true);
             con.setDoInput(true);
             con.setInstanceFollowRedirects(false);

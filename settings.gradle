@@ -1,1 +1,1 @@
-include ':session_cookie_reader'
+include ':session_cookie_reader', ':mytestapplication'

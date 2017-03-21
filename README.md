@@ -19,6 +19,10 @@ add to App *build.gradle*
 
 -----
 
+    setTimeout(int timeout) set of:
+        - setReadTimeout
+        - setConnectTimeout
+
 
     /**
      *
@@ -52,6 +56,7 @@ add to App *build.gradle*
      */
     CookieReader(CookieParameterInterfaces);
 
+-----
 
     public class Test extends Activity implements CookieParameterInterfaces {
 
