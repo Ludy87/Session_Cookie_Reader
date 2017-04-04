@@ -33,6 +33,7 @@ add to App *build.gradle*
      * @param debug default false
      */
     CookieReader(CookieParameterInterfaces parameterInterfaces, ContentType);
+    CookieReaderSSL(CookieParameterInterfaces parameterInterfaces, ContentType);
 
     /**
      *
@@ -41,6 +42,7 @@ add to App *build.gradle*
      * @param debug boolean
      */
     CookieReader(CookieParameterInterfaces, ContentType, Debug);
+    CookieReaderSSL(CookieParameterInterfaces, ContentType, Debug);
 
     /**
      *
@@ -49,6 +51,7 @@ add to App *build.gradle*
      * @param debug boolean
      */
     CookieReader(CookieParameterInterfaces, Debug);
+    CookieReaderSSL(CookieParameterInterfaces, Debug);
 
     /**
      *
@@ -57,6 +60,7 @@ add to App *build.gradle*
      * @param debug default false
      */
     CookieReader(CookieParameterInterfaces);
+    CookieReaderSSL(CookieParameterInterfaces);
 
 -----
 
