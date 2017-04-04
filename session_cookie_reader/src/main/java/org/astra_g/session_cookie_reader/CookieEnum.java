@@ -9,7 +9,8 @@ public enum CookieEnum {
 
     private String stringValue;
     private int intValue;
-    CookieEnum(String toString, int value){
+
+    CookieEnum(String toString, int value) {
         stringValue = toString;
         intValue = value;
     }

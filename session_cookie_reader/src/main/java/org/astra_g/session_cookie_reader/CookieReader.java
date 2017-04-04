@@ -3,14 +3,15 @@ package org.astra_g.session_cookie_reader;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.astra_g.session_cookie_reader.utilities.CookieUtil;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-
-import javax.net.ssl.HttpsURLConnection;
 
 public class CookieReader extends AsyncTask<String, String, String> {
 
@@ -21,12 +22,12 @@ public class CookieReader extends AsyncTask<String, String, String> {
     private CookieReaderInterfaces callback;
     private String _contentType = CookieEnum.X_WWW_FROM_URLENCODED.toString();
     private int _timeout = 7000;
+    private String TAG = CookieReader.class.getSimpleName();
 
     /**
-     *
      * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
-     * @param contentType custom Content-Type | default application/x-www-form-urlencoded
-     * @param debug default false | true enable debug logs
+     * @param contentType         custom Content-Type | default application/x-www-form-urlencoded
+     * @param debug               default false | true enable debug logs
      */
     public CookieReader(CookieParameterInterfaces parameterInterfaces, String contentType, boolean debug) {
         callback = parameterInterfaces.cookieCallback();
@@ -36,43 +37,40 @@ public class CookieReader extends AsyncTask<String, String, String> {
         _contentType = contentType;
         _debug = debug;
         if (_debug) {
-            Log.d("url", _url);
-            Log.d("CookieName", _cookieName);
-            Log.d("Content-Type", _contentType);
-            Log.d("postParameter", _postParam);
+            Log.d(TAG + " - url", _url);
+            Log.d(TAG + " - CookieName", _cookieName);
+            Log.d(TAG + " - Content-Type", _contentType);
+            if (_postParam != null)
+                Log.d(TAG + " - postParameter", _postParam);
         }
     }
 
     /**
-     *
      * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
-     * @param contentType default application/x-www-form-urlencoded
-     * @param debug default false | true enable debug logs
+     * @param contentType         default application/x-www-form-urlencoded
+     * @param debug               default false | true enable debug logs
      */
     public CookieReader(CookieParameterInterfaces parameterInterfaces, CookieEnum contentType, boolean debug) {
         this(parameterInterfaces, contentType.toString(), debug);
     }
 
     /**
-     *
      * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
-     * @param contentType default application/x-www-form-urlencoded
+     * @param contentType         default application/x-www-form-urlencoded
      */
     public CookieReader(CookieParameterInterfaces parameterInterfaces, CookieEnum contentType) {
         this(parameterInterfaces, contentType, false);
     }
 
     /**
-     *
      * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
-     * @param debug default false | true enable debug logs
+     * @param debug               default false | true enable debug logs
      */
     public CookieReader(CookieParameterInterfaces parameterInterfaces, boolean debug) {
         this(parameterInterfaces, CookieEnum.X_WWW_FROM_URLENCODED, debug);
     }
 
     /**
-     *
      * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
      */
     public CookieReader(CookieParameterInterfaces parameterInterfaces) {
@@ -80,14 +78,13 @@ public class CookieReader extends AsyncTask<String, String, String> {
     }
 
     /**
-     *
      * @param timeout default 7000 (7sec)
      * @return CookieReader
      */
     public CookieReader setTimeout(int timeout) {
         _timeout = timeout;
-        if (_debug){
-            Log.d("TimeOut", String.valueOf(_timeout));
+        if (_debug) {
+            Log.d(TAG + " - TimeOut", String.valueOf(_timeout));
         }
         return this;
     }
@@ -95,7 +92,8 @@ public class CookieReader extends AsyncTask<String, String, String> {
     /**
      * @deprecated
      */
-    public CookieReader() {}
+    public CookieReader() {
+    }
 
     /**
      * @param url http://
@@ -150,7 +148,7 @@ public class CookieReader extends AsyncTask<String, String, String> {
         URL url;
         try {
             url = new URL(_url);
-            HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
             con.setReadTimeout(_timeout);
             con.setConnectTimeout(_timeout);
@@ -158,11 +156,17 @@ public class CookieReader extends AsyncTask<String, String, String> {
             con.setDoInput(true);
             con.setInstanceFollowRedirects(false);
             con.setRequestMethod("POST");
-            con.setFixedLengthStreamingMode(_postParam.getBytes().length);
+            if (_postParam != null)
+                con.setFixedLengthStreamingMode(_postParam.getBytes().length);
+            else
+                Log.d(TAG + " - postParam", "Empty");
             con.setRequestProperty("Content-Type", _contentType);
             // Send
             PrintWriter out = new PrintWriter(con.getOutputStream());
-            out.print(_postParam);
+            if (_postParam != null)
+                out.print(_postParam);
+            else
+                Log.d(TAG + " - postParam", "Empty");
             out.close();
 
             con.connect();
@@ -199,6 +203,9 @@ public class CookieReader extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        if (callback != null) callback.onCookieCall(result);
+        if (result != null)
+            if (callback != null) callback.onCookieCall(result);
+            else
+                Log.e(TAG, "CookieResult NULL");
     }
 }

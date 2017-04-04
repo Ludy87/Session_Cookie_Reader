@@ -4,7 +4,10 @@ import java.util.HashMap;
 
 public interface CookieParameterInterfaces {
     String url();
+
     String cookieName();
+
     HashMap<String, String> postParameter();
+
     CookieReaderInterfaces cookieCallback();
 }
