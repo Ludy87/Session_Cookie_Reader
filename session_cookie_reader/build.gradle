@@ -53,5 +53,3 @@ android {
 apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/install_v1.gradle'
 //apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'
 apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/bintray_v1.gradle'
-dependencies {
-}
