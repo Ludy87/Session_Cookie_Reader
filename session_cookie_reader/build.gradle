@@ -1,5 +1,11 @@
 apply plugin: 'com.android.library'
+
 def versionsNumber = '1.3.6'
+
+def keyPropFile = rootProject.file("key.prop")
+def keyProp = new Properties()
+keyProp.load(new FileInputStream(keyPropFile))
+
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'SessionCookieReader'
@@ -10,14 +16,14 @@ ext {
 
     libraryDescription = 'Cookie Reader of Session'
 
-    siteUrl = 'https://github.com/Ludy87/Session_Cookie_Reader'
-    gitUrl = 'https://github.com/Ludy87/Session_Cookie_Reader.git'
+    siteUrl = keyProp['siteUrl']
+    gitUrl = keyProp['gitUrl']
 
     libraryVersion = versionsNumber
 
     developerId = 'ludy'
     developerName = 'ludy'
-    developerEmail = 'ludy8687@gmail.com'
+    developerEmail = keyProp['email']
     developerUrl = 'https://www.astra-g.org'
 
     licenseName = 'The Apache Software License, Version 2.0'
