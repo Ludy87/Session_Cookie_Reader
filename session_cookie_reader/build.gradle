@@ -1,11 +1,8 @@
 apply plugin: 'com.android.library'
-
-def versionsNumber = '1.3.6'
-
+def versionsNumber = '1.3.7'
 def keyPropFile = rootProject.file("key.prop")
 def keyProp = new Properties()
 keyProp.load(new FileInputStream(keyPropFile))
-
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'SessionCookieReader'
@@ -34,12 +31,12 @@ repositories {
     jcenter()
 }
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.1'
 
     defaultConfig {
-        minSdkVersion 3
-        targetSdkVersion 26
+        minSdkVersion 14
+        targetSdkVersion 27
         versionCode 1
         versionName versionsNumber
     }
@@ -53,3 +50,5 @@ android {
 apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/install_v1.gradle'
 //apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'
 apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/bintray_v1.gradle'
+dependencies {
+}

@@ -156,7 +156,7 @@ public class CookieReaderSSL extends AsyncTask<String, String, String> {
         } catch (NoSuchAlgorithmException e) {
             Log.e(TAG + " - NoSuchAlgorithm", e.getMessage());
         } catch (KeyManagementException e) {
-            Log.e(TAG + " - KeyManagemen", e.getMessage());
+            Log.e(TAG + " - KeyManagement", e.getMessage());
         }
         return null;
     }
