@@ -14,7 +14,7 @@ add to App *build.gradle*
     }
 
     dependencies {
-        compile 'org.astra_g:session_cookie_reader:1.3.+'
+        implementation 'org.astra_g:session_cookie_reader:1.3.+'
     }
 
 -----
