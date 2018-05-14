@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
 
 public class CookieReader extends AsyncTask<String, String, String> {
 
@@ -86,60 +85,6 @@ public class CookieReader extends AsyncTask<String, String, String> {
         if (_debug) {
             Log.d(TAG + " - TimeOut", String.valueOf(_timeout));
         }
-        return this;
-    }
-
-    /**
-     * @deprecated
-     */
-    public CookieReader() {
-    }
-
-    /**
-     * @param url http://
-     * @return CookieReader
-     * @deprecated
-     */
-    public CookieReader setUrl(String url) {
-        if (_debug)
-            Log.d("url", url);
-        _url = url;
-        return this;
-    }
-
-    /**
-     * @param cookieName JSESSIONID
-     * @return CookieReader
-     * @deprecated
-     */
-    public CookieReader setCookieName(String cookieName) {
-        if (_debug)
-            Log.d("cookieName", cookieName);
-        _cookieName = cookieName;
-        return this;
-    }
-
-    /**
-     * @param postParameter HashMap
-     * @return CookieReader
-     * @deprecated
-     */
-    public CookieReader setPostParameter(HashMap<String, String> postParameter) {
-        if (_debug)
-            for (String s : postParameter.keySet()) {
-                Log.d("postParameter", s + "=" + postParameter.get(s));
-            }
-        _postParam = CookieUtil.getQuery(postParameter);
-        return this;
-    }
-
-    /**
-     * @param callback CookieReaderInterfaces
-     * @return CookieReader
-     * @deprecated
-     */
-    public CookieReader setCookieCallback(CookieReaderInterfaces callback) {
-        this.callback = callback;
         return this;
     }
 
