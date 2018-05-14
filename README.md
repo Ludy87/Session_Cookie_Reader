@@ -1,4 +1,6 @@
-# CookieReader for Android
+# NEW [CookieReader for Android 2.x](https://github.com/Ludy87/Session_Cookie_Reader/tree/Version2.x)
+
+# CookieReader for Android 1.3.x DEPRECATED
 
 Cookie Reader of Session
 
