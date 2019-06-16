@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-def versionsNumber = '2.0.3'
+def versionsNumber = '2.0.5'
 def keyPropFile = rootProject.file("key.prop")
 def keyProp = new Properties()
 keyProp.load(new FileInputStream(keyPropFile))
