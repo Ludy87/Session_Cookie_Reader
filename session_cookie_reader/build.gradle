@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-def versionsNumber = '2.0.2'
+def versionsNumber = '2.0.3'
 def keyPropFile = rootProject.file("key.prop")
 def keyProp = new Properties()
 keyProp.load(new FileInputStream(keyPropFile))
@@ -31,11 +31,11 @@ repositories {
     jcenter()
 }
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.1'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.0'
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName versionsNumber
     }
