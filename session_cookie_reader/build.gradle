@@ -1,38 +1,37 @@
 apply plugin: 'com.android.library'
-def versionsNumber = '2.0.5'
-def keyPropFile = rootProject.file("key.prop")
-def keyProp = new Properties()
-keyProp.load(new FileInputStream(keyPropFile))
+final String versionsNumber = '2.0.5'
+
+final Properties properties = new Properties()
+properties.load(project.rootProject.file('keys.properties').newDataInputStream())
+
 ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'SessionCookieReader'
+    bintrayRepo     = 'maven'
+    bintrayName         = 'SessionCookieReader'
 
-    publishedGroupId = 'org.astra_g'
-    libraryName = 'SessionCookieReader'
-    artifact = 'session_cookie_reader'
+    publishedGroupId    = 'org.astra_g'
+    libraryName         = 'SessionCookieReader'
+    artifact            = 'session_cookie_reader'
 
-    libraryDescription = 'Cookie Reader of Session'
+    libraryDescription  = 'Cookie Reader of Session'
+    libraryVersion      = versionsNumber
 
-    siteUrl = keyProp['siteUrl']
-    gitUrl = keyProp['gitUrl']
+    siteUrl             = properties.getProperty("bintray.site.url")
 
-    libraryVersion = versionsNumber
+    developerId         = 'ludy'
+    developerName       = 'ludy'
+    developerEmail      = properties.getProperty("bintray.email")
+    developerUrl        = 'https://www.astra-g.org'
 
-    developerId = 'ludy'
-    developerName = 'ludy'
-    developerEmail = keyProp['email']
-    developerUrl = 'https://www.astra-g.org'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+    licenseName         = 'The Apache Software License, Version 2.0'
+    licenseUrl          = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses         = ["Apache-2.0"]
 }
 repositories {
     jcenter()
 }
 android {
     compileSdkVersion 29
-    buildToolsVersion '29.0.0'
+    buildToolsVersion '28.0.3'
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 29
@@ -44,12 +43,11 @@ android {
             minifyEnabled false
         }
     }
-    productFlavors {
-    }
 }
+
 //apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/install_v1.gradle'
 //apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'
 apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/bintray_v1.gradle'
-dependencies {
-}
+
+dependencies {}

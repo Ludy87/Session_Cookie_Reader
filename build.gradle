@@ -4,21 +4,15 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.3'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+        classpath 'com.android.tools.build:gradle:3.4.1'
     }
 }
-
+plugins {
+    id "com.github.dcendents.android-maven" version "2.1"
+    id "com.jfrog.bintray" version "1.8.4"
+}
 allprojects {
     repositories {
         jcenter()
-        google()
     }
 }
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
-apply plugin: 'com.jfrog.bintray'
