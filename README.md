@@ -15,7 +15,7 @@ add to App *build.gradle*
     }
 
     dependencies {
-        implementation 'org.astra_g:session_cookie_reader:2.+'
+        implementation 'com.github.Ludy87:Session_Cookie_Reader:2.+'
     }
 
 -----

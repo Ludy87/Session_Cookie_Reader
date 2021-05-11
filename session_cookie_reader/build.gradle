@@ -1,6 +1,9 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
-final String versionsNumber = '2.0.6'
+final String versionsNumber = '2.0.7'
 
 repositories {}
 android {
@@ -20,3 +23,17 @@ android {
 }
 
 dependencies {}
+apply plugin: 'com.github.dcendents.android-maven'
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.Ludy87'
+                artifactId = 'Session_Cookie_Reader'
+                version = versionsNumber
+            }
+        }
+    }
+}
