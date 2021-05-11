@@ -2,10 +2,16 @@ plugins {
     id 'com.android.library'
     id 'maven-publish'
 }
+group = 'com.github.Ludy87'
 
-final String versionsNumber = '2.0.7'
+final String versionsNumber = '2.0.8'
 
-repositories {}
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
 android {
     compileSdkVersion 30
     buildToolsVersion '30.0.3'
@@ -23,7 +29,7 @@ android {
 }
 
 dependencies {}
-apply plugin: 'com.github.dcendents.android-maven'
+
 afterEvaluate {
     publishing {
         publications {
