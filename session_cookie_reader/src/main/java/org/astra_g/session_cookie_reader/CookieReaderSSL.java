@@ -1,8 +1,8 @@
 package org.astra_g.session_cookie_reader;
 
-import android.os.AsyncTask;
 import android.util.Log;
 
+import org.astra_g.session_cookie_reader.utilities.AsyncTask;
 import org.astra_g.session_cookie_reader.utilities.CookieUtil;
 import org.astra_g.session_cookie_reader.utilities.NoSSLv3SocketFactory;
 
@@ -27,7 +27,7 @@ public class CookieReaderSSL extends AsyncTask<String, String, String> {
     private CookieReaderInterfaces callback;
     private String _contentType = CookieEnum.X_WWW_FROM_URLENCODED.toString();
     private int _timeout = 7000;
-    private String TAG = CookieReaderSSL.class.getSimpleName();
+    private final String TAG = CookieReaderSSL.class.getSimpleName();
 
     /**
      * @param parameterInterfaces Interface of CALLBACK, URL, POST PARAMETER, COOKIE NAME
@@ -98,7 +98,7 @@ public class CookieReaderSSL extends AsyncTask<String, String, String> {
     }
 
     @Override
-    protected String doInBackground(String... params) {
+    protected String doInBackground() {
         URL url;
         try {
             SSLContext sslcontext = SSLContext.getInstance("TLSv1");
@@ -142,7 +142,7 @@ public class CookieReaderSSL extends AsyncTask<String, String, String> {
                     }
                 }
             }
-            BufferedReader in = null;
+            BufferedReader in;
             if (con.getResponseCode() != 200) {
                 in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
                 Log.d(TAG, "!=200: " + in.readLine());
@@ -152,11 +152,14 @@ public class CookieReaderSSL extends AsyncTask<String, String, String> {
                 Log.d(TAG, "POST request send successful: " + in.readLine());
             }
         } catch (IOException e) {
-            Log.e(TAG + " - IOException", e.getMessage());
+            if (e.getMessage() != null)
+                Log.e(TAG + " - IOException", e.getMessage());
         } catch (NoSuchAlgorithmException e) {
-            Log.e(TAG + " - NoSuchAlgorithm", e.getMessage());
+            if (e.getMessage() != null)
+                Log.e(TAG + " - NoSuchAlgorithm", e.getMessage());
         } catch (KeyManagementException e) {
-            Log.e(TAG + " - KeyManagement", e.getMessage());
+            if (e.getMessage() != null)
+                Log.e(TAG + " - KeyManagement", e.getMessage());
         }
         return null;
     }
@@ -167,5 +170,11 @@ public class CookieReaderSSL extends AsyncTask<String, String, String> {
             if (callback != null) callback.onCookieCall(result);
             else
                 Log.e(TAG, "CookieResult NULL");
+    }
+
+    @Override
+    protected void onBackgroundError(Exception e) {
+        Log.e("TAG", "Exception");
+        e.printStackTrace();
     }
 }

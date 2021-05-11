@@ -1,40 +1,14 @@
 apply plugin: 'com.android.library'
-final String versionsNumber = '2.0.5'
 
-final Properties properties = new Properties()
-properties.load(project.rootProject.file('keys.properties').newDataInputStream())
+final String versionsNumber = '2.0.6'
 
-ext {
-    bintrayRepo         = 'maven'
-    bintrayName         = 'SessionCookieReader'
-
-    publishedGroupId    = 'org.astra_g'
-    libraryName         = 'SessionCookieReader'
-    artifact            = 'session_cookie_reader'
-
-    libraryDescription  = 'Cookie Reader of Session'
-    libraryVersion      = versionsNumber
-
-    siteUrl             = properties.getProperty("bintray.site.url")
-
-    developerId         = 'ludy'
-    developerName       = 'ludy'
-    developerEmail      = properties.getProperty("bintray.email")
-    developerUrl        = 'https://www.astra-g.org'
-
-    licenseName         = 'The Apache Software License, Version 2.0'
-    licenseUrl          = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses         = ["Apache-2.0"]
-}
-repositories {
-    jcenter()
-}
+repositories {}
 android {
-    compileSdkVersion 29
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.3'
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName versionsNumber
     }
@@ -44,10 +18,5 @@ android {
         }
     }
 }
-
-//apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/install_v1.gradle'
-//apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'
-apply from: 'https://raw.githubusercontent.com/Ludy87/gradle/master/bintray_v1.gradle'
 
 dependencies {}

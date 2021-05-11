@@ -1,8 +1,8 @@
 package org.astra_g.session_cookie_reader;
 
-import android.os.AsyncTask;
 import android.util.Log;
 
+import org.astra_g.session_cookie_reader.utilities.AsyncTask;
 import org.astra_g.session_cookie_reader.utilities.CookieUtil;
 
 import java.io.BufferedReader;
@@ -89,7 +89,7 @@ public class CookieReader extends AsyncTask<String, String, String> {
     }
 
     @Override
-    protected String doInBackground(String... params) {
+    protected String doInBackground() {
         URL url;
         try {
             url = new URL(_url);
@@ -129,7 +129,7 @@ public class CookieReader extends AsyncTask<String, String, String> {
                     }
                 }
             }
-            BufferedReader in = null;
+            BufferedReader in;
             if (con.getResponseCode() != 200) {
                 in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
                 Log.d("TAG", "!=200: " + in.readLine());
@@ -152,5 +152,11 @@ public class CookieReader extends AsyncTask<String, String, String> {
             if (callback != null) callback.onCookieCall(result);
             else
                 Log.e(TAG, "CookieResult NULL");
+    }
+
+    @Override
+    protected void onBackgroundError(Exception e) {
+        Log.e("TAG", "Exception");
+        e.printStackTrace();
     }
 }

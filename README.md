@@ -2,7 +2,8 @@
 
 Cookie Reader of Session
 
-[![Download](https://api.bintray.com/packages/ludy87/maven/SessionCookieReader/images/download.svg)](https://bintray.com/ludy87/maven/SessionCookieReader/_latestVersion)
+[![](https://jitpack.io/v/Ludy87/Session_Cookie_Reader.svg)](https://jitpack.io/#Ludy87/Session_Cookie_Reader)
+
 
 
 
