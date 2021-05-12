@@ -1,10 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'org.astra_g'
-version = '2.1.1'
 
-final String versionsNumber = version
+final String versionsNumber = '2.1.2'
 
 repositories {
     mavenCentral()
