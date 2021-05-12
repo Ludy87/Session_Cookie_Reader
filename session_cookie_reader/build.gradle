@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
 
-final String versionsNumber = '2.1.4'
+final String versionsNumber = '2.1.5'
 
 repositories {
     mavenCentral()
