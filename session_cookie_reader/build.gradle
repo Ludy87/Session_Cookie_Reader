@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
-final String versionsNumber = '2.1.7'
+final String versionsNumber = '2.1.8'
 
 repositories {
     mavenCentral()
