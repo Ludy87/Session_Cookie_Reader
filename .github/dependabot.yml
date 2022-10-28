@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "21:15"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 1000
+    labels:
+      - "dependencies"
